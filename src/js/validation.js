@@ -64,8 +64,7 @@ function val(form) {
 		'Phone' : form.phno.value,
 		'Email' : form.email.value,
 		'Password' : form.pass.value
-	};	
-	//localStorage.clear();
+	};		
 	add_to_data(user);
 	window.location = "users.html";
 }
