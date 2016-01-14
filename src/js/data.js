@@ -1,13 +1,15 @@
 function getData() {
 	var data = JSON.parse(localStorage.getItem('Users'));
 	var table = document.getElementById("userTable");
-	for (var i = 0 ; i < data.length ; i++) 
+	//window.alert(data.Users[0].Name);
+	for (var i = 0 ; i < data.Users.length ; i++) 
     {  
-		var tr = document.createElement("tr");	
-		tr.append("<td>" + data[i].Name  + "</td>");
-		tr.append("<td>" + data[i].Phone + "</td>");
-		tr.append("<td>" + data[i].Email + "</td>");           
-        table.appendChild(tr);     	                
+		table.innerHTML+=	"<tr>"+
+							"<td>"+data.Users[i].Name+"</td>"+
+							"<td>"+data.Users[i].Phone+"</td>"+
+							"<td>"+data.Users[i].Email+"</td>"+
+							"</tr>"			
     }	
+	
 }
 

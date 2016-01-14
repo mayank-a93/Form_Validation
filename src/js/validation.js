@@ -18,6 +18,26 @@ function pass_match(pass1,pass2) {
 	return(pass1!=pass2);
 }
 
+function data_init(user) {
+	var data = {
+		Users : []
+	};	
+	data.Users.push(user);
+	localStorage.setItem('Users', JSON.stringify(data));
+}
+
+function add_to_data(user) {
+	var data = JSON.parse(localStorage.getItem('Users'));
+	var temp = user;
+	if(data==null) 
+		data_init(temp);	
+	else {
+		data['Users'].push(user);
+		localStorage.setItem('Users', JSON.stringify(data));
+	}
+		
+}
+
 function val(form) {		
 	if(val_name(form.name.value)){
 		window.alert("Name can only contain characters.");
@@ -44,7 +64,8 @@ function val(form) {
 		'Phone' : form.phno.value,
 		'Email' : form.email.value,
 		'Password' : form.pass.value
-	}
-	localStorage.setItem('Users', JSON.stringify(user));
+	};	
+	//localStorage.clear();
+	add_to_data(user);
 	window.location = "users.html";
 }
