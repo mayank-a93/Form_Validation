@@ -19,20 +19,20 @@ function pass_match(pass1,pass2) {
 }
 
 function data_init(user) {
-	var data = {
-		Users : []
-	};	
-	data.Users.push(user);
+	var data = {};
+	data["1"] = user;
 	localStorage.setItem('Users', JSON.stringify(data));
 }
 
 function add_to_data(user) {
 	var data = JSON.parse(localStorage.getItem('Users'));
-	var temp = user;
+	var temp = user;	
 	if(data==null) 
 		data_init(temp);	
 	else {
-		data['Users'].push(user);
+		var len = Object.keys(data).length
+		data[""+(len+1)] = user;
+		window.alert(Object.keys(data).length)
 		localStorage.setItem('Users', JSON.stringify(data));
 	}
 		
@@ -65,6 +65,7 @@ function val(form) {
 		'Email' : form.email.value,
 		'Password' : form.pass.value
 	};		
+	//localStorage.clear();
 	add_to_data(user);
 	window.location = "users.html";
 }
