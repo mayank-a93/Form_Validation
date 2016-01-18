@@ -1,5 +1,5 @@
 function val_number(num){	
-	return(num.match(/\d/g).length<10);		
+	return(num.match(/\d/g).length!=10);		
 }
 
 function val_name(name){	
@@ -33,7 +33,7 @@ function add_to_data(user) {
 		var len = Object.keys(data).length
 		data[""+(len+1)] = user;
 		window.alert(Object.keys(data).length)
-		localStorage.setItem('Users', JSON.stringify(data));
+		localStorage.setItem('Users', JSON.stringify(data));		
 	}
 		
 }

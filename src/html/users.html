@@ -1,17 +1,27 @@
 <html>
+
 <head>
-<script type="text/javascript" src="/Form_validation/src/js/data.js">
-</script>
+	<script type="text/javascript" src="/Form_validation/src/js/data.js"></script>	
+	<script type="text/javascript" src="/Form_validation/src/js/filter.js"></script>	
 </head>
+
 <body onload="getData()">
 <div style="position: absolute;top:50%;left:50%;transform: translate(-50%, -50%);">
+	<div>
+	<form>
+		<input name="key" type="text" placeholder="Key"> 		
+		<input type="button" onclick="search(this.form)" value="Search">
+		<input type="button" onclick="res()" value="Reset">
+	</form>
+	</div><br><br>
 	<table id="userTable" border="1" cellpadding="10">
 		<thead><tr>
 			<th>Name</th>
 			<th>Phone Number</th>
 			<th>Email</th>						
 		</thead></tr>
-	</table>
+	</table>	
 </div>
 </body>
+
 </html>
